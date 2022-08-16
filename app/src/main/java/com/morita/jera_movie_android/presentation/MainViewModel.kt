@@ -21,6 +21,10 @@ class MainViewModel(
 ) : ViewModel() {
 
 
+    private val _porvir = MutableLiveData<List<PopularMovie>>()
+    val povir: LiveData<List<PopularMovie>> get() = _porvir
+
+
     private val _popularMovie = MutableLiveData<List<PopularMovie>>()
     val popularMovie: LiveData<List<PopularMovie>> get() = _popularMovie
 
@@ -69,7 +73,7 @@ class MainViewModel(
 
                 ) {
                     if (response.isSuccessful) {
-                        _popularMovie.value =
+                        _porvir.value =
                             response.body()?.popularMovie?.map { it.toPopularMovie() }
                     }
                 }

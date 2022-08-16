@@ -3,40 +3,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/title_porvir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_below="@id/recicyclerFilmesPopulares"
+        android:text="Filmes por vir"
+        tools:ignore="HardcodedText" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recicyclerFilmesPorvir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_porvir"
+        tools:listitem="@layout/item_movie" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recicyclerFilmesPopulares"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navegation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
+        android:layout_below="@id/textView"
         tools:listitem="@layout/item_movie" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="@color/black"
         android:text="Filmes populares"
         android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         tools:ignore="MissingConstraints" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navegation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="12dp"
-        android:background="#12FF72"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/bottom_menu" />
 
 </RelativeLayout>
 

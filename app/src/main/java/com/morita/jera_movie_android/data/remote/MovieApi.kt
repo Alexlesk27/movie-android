@@ -12,12 +12,6 @@ interface MovieApi {
         @Query("api_key") api_key: String = API_KEY
     ): Call<PopularMovieResponse1>
 
-    companion object {
-        val BASE_URL = "https://api.themoviedb.org"
-        val API_KEY = "c45ebd84064ab6cf008d139d297f36cf"
-
-    }
-
 
 @GET("/3/movie/upcoming")
 fun getPorVir(
@@ -25,6 +19,11 @@ fun getPorVir(
 ):Call<PopularMovieResponse1>
 
 
+    companion object {
+        val BASE_URL = "https://api.themoviedb.org"
+        val API_KEY = "c45ebd84064ab6cf008d139d297f36cf"
+
+    }
     }
 
 

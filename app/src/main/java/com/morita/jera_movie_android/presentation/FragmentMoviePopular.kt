@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.morita.jera_movie_android.R
-import com.morita.jera_movie_android.databinding.ActivityMainBinding
 import com.morita.jera_movie_android.databinding.FragmentMoviePopularBinding
 import com.morita.jera_movie_android.presentation.movie.FilmesAdapterM
+import com.morita.jera_movie_android.presentation.movie.FilmesPorvirAdapter1
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -22,6 +22,7 @@ class FragmentMoviePopular : Fragment(R.layout.fragment_movie_popular) {
     private var binding: FragmentMoviePopularBinding? = null
     private lateinit var recyclerView: RecyclerView
     private lateinit var filmesAdapterM: FilmesAdapterM
+    private lateinit var filmesPorVirViewHolder: FilmesPorvirAdapter1
     private val mainViewModel: MainViewModel by viewModel()
 
     companion object {
@@ -33,6 +34,8 @@ class FragmentMoviePopular : Fragment(R.layout.fragment_movie_popular) {
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
         callPopularMovie()
+        callPopularMovie2()
+
 
         val recyclerView = binding!!.recicyclerFilmesPopulares
         recyclerView.layoutManager =
@@ -41,19 +44,11 @@ class FragmentMoviePopular : Fragment(R.layout.fragment_movie_popular) {
         recyclerView.adapter = filmesAdapterM
 
 
-        mainViewModel.popularMovie.observe(viewLifecycleOwner) { popularMovie ->
-          popularMovie?.let {
-               filmesAdapterM.submitList(it)
-
-            }
-
-      }
-
-        val recyclerView2 = binding!!.recicyclerFilmesPopulares
+        val recyclerView2 = binding!!.recicyclerFilmesPorvir
         recyclerView2.layoutManager =
             LinearLayoutManager(activity, GridLayoutManager.HORIZONTAL, false)
-        filmesAdapterM = FilmesAdapterM(requireContext())
-        recyclerView2.adapter = filmesAdapterM
+        filmesPorVirViewHolder = FilmesPorvirAdapter1(requireContext())
+        recyclerView2.adapter = filmesPorVirViewHolder
 
 
         mainViewModel.popularMovie.observe(viewLifecycleOwner) { popularMovie ->
@@ -63,6 +58,16 @@ class FragmentMoviePopular : Fragment(R.layout.fragment_movie_popular) {
             }
 
         }
+
+
+        mainViewModel.povir.observe(viewLifecycleOwner) { popularMovie ->
+            popularMovie?.let {
+                filmesPorVirViewHolder.submitList(it)
+
+            }
+
+        }
+
 
 
 
@@ -76,7 +81,6 @@ class FragmentMoviePopular : Fragment(R.layout.fragment_movie_popular) {
 
         binding = FragmentMoviePopularBinding.inflate(inflater, container, false)
 
-
         return binding!!.root
 
 
@@ -85,12 +89,17 @@ class FragmentMoviePopular : Fragment(R.layout.fragment_movie_popular) {
 
     private fun callPopularMovie() {
         GlobalScope.launch {
-            mainViewModel.getpopularMovie()
-            mainViewModel.getPorVir()
+          mainViewModel.getpopularMovie()
+
         }
     }
 
+    private fun callPopularMovie2() {
+        GlobalScope.launch {
+            mainViewModel.getPorVir()
 
+        }
+    }
 
 
 

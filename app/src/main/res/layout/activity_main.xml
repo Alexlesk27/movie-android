@@ -10,7 +10,17 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent">
 
-
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navegation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="12dp"
+        android:background="#12FF72"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_menu" />
 
   </RelativeLayout>
 </FrameLayout>

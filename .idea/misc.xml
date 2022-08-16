@@ -7,7 +7,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/bottom_menu.xml" value="0.1" />
         <entry key="app/src/main/res/layout/button_navegation.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/detalhes_movie.xml" value="0.1288888888888889" />
+        <entry key="app/src/main/res/layout/detalhes_movie.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_blank3.xml" value="0.2520833333333333" />
         <entry key="app/src/main/res/layout/fragment_item_list.xml" value="0.1" />
@@ -15,6 +15,7 @@
         <entry key="app/src/main/res/layout/item_movie.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_popular_movie_frag.xml" value="0.1" />
         <entry key="app/src/main/res/layout/lista_filmes_porvir.xml" value="0.2520833333333333" />
+        <entry key="app/src/main/res/layout/reciclerview_detalhes_movies.xml" value="0.25" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.1" />
       </map>
     </option>
