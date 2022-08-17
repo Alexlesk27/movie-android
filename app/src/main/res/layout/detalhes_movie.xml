@@ -10,24 +10,21 @@
       android:gravity="center">
 
       <ImageView
-          android:id="@+id/imagem_detalhe"
+          android:id="@+id/image_detail"
           android:layout_width="match_parent"
           android:layout_height="200dp"
           android:layout_marginBottom="10dp" />
 
       <TextView
-          android:id="@+id/descripitio"
+          android:id="@+id/descripition"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          android:layout_below="@id/imagem_detalhe"
+          android:layout_below="@id/image_detail"
           android:layout_marginStart="10dp"
           android:layout_marginEnd="10dp"
           android:layout_marginBottom="10dp"
           android:text="descricao"
           android:textAlignment="center" />
-
-
-
 
   </RelativeLayout>
 

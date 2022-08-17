@@ -6,16 +6,15 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.morita.jera_movie_android.databinding.ActivityMainBinding
-import com.morita.jera_movie_android.presentation.FragmentMoviePopular
+import com.morita.jera_movie_android.presentation.movie.fragment.FragmentMoviePopular
 import com.morita.jera_movie_android.presentation.MainViewModel
-import com.morita.jera_movie_android.presentation.movie.FilmesAdapterM
+import com.morita.jera_movie_android.presentation.movie.adapter.MoviesPopularAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var bottomNavigationItemView: BottomNavigationItemView
+
     private lateinit var binding: ActivityMainBinding
-    private lateinit var filmesAdapterM: FilmesAdapterM
-    private val mainViewModel: MainViewModel by viewModel()
+    private lateinit var filmesAdapterM: MoviesPopularAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
