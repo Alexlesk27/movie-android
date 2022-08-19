@@ -1,15 +1,13 @@
-package com.morita.jera_movie_android
+package com.morita.jera_movie_android.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import com.morita.jera_movie_android.R
 import com.morita.jera_movie_android.databinding.ActivityMainBinding
 import com.morita.jera_movie_android.presentation.movie.fragment.FragmentMoviePopular
-import com.morita.jera_movie_android.presentation.MainViewModel
 import com.morita.jera_movie_android.presentation.movie.adapter.MoviesPopularAdapter
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">jera-movie-android</string>
     <string name="get_popular_movie">Get Popular Movie</string>
+    <string name="error_weight_calibration_dialog">Não foi possível calibrar a balança. Verifique se seu peso está correto!</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="filmes_populares">Filmes populares</string>
+    <string name="filmes_por_vir">Filmes por vir</string>
+    <string name="Filmes_por_vir">movie</string>
 </resources>

@@ -1,93 +1,63 @@
 package com.morita.jera_movie_android.presentation
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import com.morita.jera_movie_android.data.remote.MovieApi
-import com.morita.jera_movie_android.data.remote.dto.PopularMovieDto
-import com.morita.jera_movie_android.data.remote.model.Movie
-import com.morita.jera_movie_android.data.remote.response.PopularMovieResponse
-import com.morita.jera_movie_android.domain.PopularMovie
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.http.GET
+import ListState
+import android.util.Log
+import androidx.lifecycle.*
+import com.morita.jera_movie_android.data.remote.Model.Movie
+import com.morita.jera_movie_android.data.remote.Network.MoviesReponsitory
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
 
 class MainViewModel(
-    val api: MovieApi
+    val movieApi: MoviesReponsitory
 ) : ViewModel() {
 
+     private var _apiMoviePopularState = MutableStateFlow<ListState<List<Movie>>>(ListState.New)
+     val apiMoviePopularState : StateFlow <ListState<List<Movie>>> =_apiMoviePopularState.asStateFlow()
 
-    private val _porvir = MutableLiveData<List<PopularMovie>>()
-    val povir: LiveData<List<PopularMovie>> get() = _porvir
+    private var _apiMovieUpcomingState = MutableStateFlow<ListState<List<Movie>>>(ListState.New)
+    val apiMovieUpcomingState : StateFlow <ListState<List<Movie>>> =_apiMovieUpcomingState.asStateFlow()
 
+    init {
+        getPopularMovie()
+        getUpcoming()
+    }
 
-    private val _popularMovie = MutableLiveData<List<PopularMovie>>()
-    val popularMovie: LiveData<List<PopularMovie>> get() = _popularMovie
+  private  fun getPopularMovie() {
+        viewModelScope.launch {
+            movieApi.moviesPopular().collect {
+                when (it) {
+                    is MoviesReponsitory.ResponseState.Success -> {
+                        Log.i("lista", "$it")
+                        _apiMoviePopularState.value = ListState.Success(it.value!!.Movie)
+                    }
 
-    private val _popularMovieErrorResponse = MutableLiveData<String>()
-    val popularMovieErrorResponse: LiveData<String?> get() = _popularMovieErrorResponse
+                    is MoviesReponsitory.ResponseState.Error -> {
 
-
-
-
-
-    suspend fun getpopularMovie() = withContext(Dispatchers.Main) {
-        val call: Call<PopularMovieResponse> = api.getPopularMovie()
-        call.enqueue(
-            object : Callback<PopularMovieResponse> {
-                override fun onResponse(
-                    call: Call<PopularMovieResponse>,
-                    response: Response<PopularMovieResponse>
-
-
-                ) {
-                    if (response.isSuccessful) {
-                        _popularMovie.value =
-                            response.body()?.popularMovie?.map { it.toPopularMovie() }
                     }
                 }
-
-                override fun onFailure(call: Call<PopularMovieResponse>, error: Throwable) {
-                    _popularMovieErrorResponse.value = error.message
-                }
-
             }
-        )
+        }
 
     }
 
 
+    private  fun getUpcoming() {
+        viewModelScope.launch {
+            movieApi.Upcoming().collect {
+                when (it) {
+                    is MoviesReponsitory.ResponseState.Success -> {
+                        Log.i("lista", "$it")
+                        _apiMovieUpcomingState.value = ListState.Success(it.value!!.Movie)
+                    }
 
-    suspend fun getPorVir() = withContext(Dispatchers.Main) {
-        val call: Call<PopularMovieResponse> = api.getPorVir()
-        call.enqueue(
-            object : Callback<PopularMovieResponse> {
-                override fun onResponse(
-                    call: Call<PopularMovieResponse>,
-                    response: Response<PopularMovieResponse>
+                    is MoviesReponsitory.ResponseState.Error -> {
 
-
-                ) {
-                    if (response.isSuccessful) {
-                        _porvir.value =
-                            response.body()?.popularMovie?.map { it.toPopularMovie() }
                     }
                 }
-
-                override fun onFailure(call: Call<PopularMovieResponse>, error: Throwable) {
-                    _popularMovieErrorResponse.value = error.message
-                }
-
             }
-        )
+        }
 
     }
-
-
 
 }
-

@@ -11,7 +11,7 @@
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_blank3.xml" value="0.2520833333333333" />
         <entry key="app/src/main/res/layout/fragment_item_list.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_movie_popular.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_movie_popular.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_movie.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_popular_movie_frag.xml" value="0.1" />
         <entry key="app/src/main/res/layout/lista_filmes_porvir.xml" value="0.2520833333333333" />
