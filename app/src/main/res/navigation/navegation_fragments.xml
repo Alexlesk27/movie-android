@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navegation_fragments"
+    app:startDestination="@id/fragmentMoviePopular3">
+
+    <fragment
+        android:id="@+id/fragmentMoviePopular3"
+        android:name="com.morita.jera_movie_android.presentation.movie.fragment.FragmentMoviePopular"
+        android:label="FragmentMoviePopular"
+        tools:layout="@layout/fragment_movie_popular">
+        <action
+            android:id="@+id/action_fragmentMoviePopular3_to_detalhesFragment32"
+            app:destination="@id/detalhesFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalhesFragment3"
+        android:name="com.morita.jera_movie_android.presentation.movie.fragment.DetalhesFragment"
+        android:label="DetalhesFragment"
+        tools:layout="@layout/detalhes_movie"/>
+</navigation>
