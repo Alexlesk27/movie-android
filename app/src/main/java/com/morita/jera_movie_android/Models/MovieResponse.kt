@@ -1,6 +1,6 @@
-package com.morita.jera_movie_android.data.remote.Response
+package com.morita.jera_movie_android.Models
 import com.google.gson.annotations.SerializedName
-import com.morita.jera_movie_android.data.remote.Model.Movie
+import com.morita.jera_movie_android.Models.Movie
 
 data class MovieResponse(
 

@@ -1,9 +1,10 @@
 package com.morita.jera_movie_android.data.remote.dto
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.morita.jera_movie_android.data.remote.API.MovieApi
-import com.morita.jera_movie_android.data.remote.Network.MoviesReponsitory
-import com.morita.jera_movie_android.presentation.MainViewModel
+import com.morita.jera_movie_android.API.APIRest.MovieApi
+import com.morita.jera_movie_android.API.APIRest.repository.MoviesRepository
+import com.morita.jera_movie_android.Features.Home.PopularMovieViewModel
+import com.morita.jera_movie_android.Features.Home.UpcomingMovieViewModel
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -45,9 +46,20 @@ val apiModulo = module {
     }
 }
 
+
+
 val viewModelModule = module {
     viewModel {
-        MainViewModel(
+        UpcomingMovieViewModel(
+            get()
+        )
+    }
+}
+
+
+val viewPopularMovieModelModule = module {
+    viewModel {
+        PopularMovieViewModel(
             get()
         )
     }
@@ -55,6 +67,6 @@ val viewModelModule = module {
 
 val repositoryModule = module {
     single(createdAtStart = false) {
-        MoviesReponsitory(get())
+        MoviesRepository(get())
     }
 }

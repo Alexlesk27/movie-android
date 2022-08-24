@@ -7,4 +7,6 @@
     <string name="filmes_populares">Filmes populares</string>
     <string name="filmes_por_vir">Filmes por vir</string>
     <string name="Filmes_por_vir">movie</string>
+    <string name="filmes_por_vir1">Filmes por vir</string>
+    <string name="data_do_lan_amento">Data do lançamento</string>
 </resources>

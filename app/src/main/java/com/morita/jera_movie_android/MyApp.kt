@@ -1,10 +1,7 @@
 package com.morita.jera_movie_android
 
 import android.app.Application
-import com.morita.jera_movie_android.data.remote.dto.apiModulo
-import com.morita.jera_movie_android.data.remote.dto.repositoryModule
-import com.morita.jera_movie_android.data.remote.dto.retrofitModule
-import com.morita.jera_movie_android.data.remote.dto.viewModelModule
+import com.morita.jera_movie_android.data.remote.dto.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -23,7 +20,8 @@ class MyApp : Application() {
                 retrofitModule,
                 apiModulo,
                 viewModelModule,
-                repositoryModule
+                repositoryModule,
+                viewPopularMovieModelModule
             )
         }
     }

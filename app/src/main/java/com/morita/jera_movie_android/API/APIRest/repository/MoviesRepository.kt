@@ -1,12 +1,12 @@
-package com.morita.jera_movie_android.data.remote.Network
-import com.morita.jera_movie_android.data.remote.API.MovieApi
-import com.morita.jera_movie_android.data.remote.Response.MovieResponse
+package com.morita.jera_movie_android.API.APIRest.repository
+import com.morita.jera_movie_android.API.APIRest.MovieApi
+import com.morita.jera_movie_android.Models.MovieResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-class MoviesReponsitory(
+class MoviesRepository(
     val api: MovieApi
 
 ) {

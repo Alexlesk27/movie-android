@@ -1,13 +1,10 @@
-package com.morita.jera_movie_android.presentation
+package com.morita.jera_movie_android.Features
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import com.morita.jera_movie_android.R
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.morita.jera_movie_android.databinding.ActivityMainBinding
-import com.morita.jera_movie_android.presentation.movie.fragment.FragmentMoviePopular
-import com.morita.jera_movie_android.presentation.movie.adapter.MoviesPopularAdapter
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +15,11 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val navHostFragment = supportFragmentManager.findFragmentById(binding.fragmentContainerView.id) as NavHostFragment
+        val  navController = navHostFragment.navController
+
+        binding.bottomNavegation.setupWithNavController(navController)
 
     }
 }
