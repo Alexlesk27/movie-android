@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A300BCD4">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recicyclerSearch"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:layout_below="@id/search_movie"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        tools:ignore="NotSibling"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        tools:listitem="@layout/item_search" />
+
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_movie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="50dp"
+        android:label="@string/app_name"
+        app:queryHint="Digite o nome do filme"
+        tools:ignore="NotSibling" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/recicyclerSearch"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="169dp"
+        android:layout_marginEnd="184dp"
+        android:visibility="gone"
+        android:layout_marginBottom="302dp"
+        android:indeterminateDrawable="@drawable/progress_bar_movie"
+        android:outlineSpotShadowColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="UnknownId" />
+
+
+</RelativeLayout>
