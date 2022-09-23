@@ -17,7 +17,7 @@ class SearchMovieUseCase(
     override suspend fun execute(query: String): Flow<MoviesRepository.ResponseState<MovieResponse>> {
         return flow {
             try {
-                val response = moviesRepository.Serch(query)
+                val response = moviesRepository.(query)
                 emit(MoviesRepository.ResponseState.Success(response))
             } catch (error: Exception) {
                 emit(MoviesRepository.ResponseState.Error(error))

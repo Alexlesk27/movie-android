@@ -1,5 +1,6 @@
 package com.morita.jera_movie_android.API.APIRest.repository
 import com.morita.jera_movie_android.API.APIRest.MovieApi
+import com.morita.jera_movie_android.Models.Movie
 import com.morita.jera_movie_android.Models.MovieResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -34,6 +35,8 @@ class MoviesRepository(
             }
         }.flowOn(Dispatchers.IO)
     }
+
+
 
     sealed class ResponseState<out T> {
         data class Success<out T>(val value: T) : ResponseState<T>()

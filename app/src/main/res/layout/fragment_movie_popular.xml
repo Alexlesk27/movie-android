@@ -54,9 +54,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:indeterminateDrawable="@drawable/progress_bar"
-            tools:ignore="UnknownId" />
-
+            android:indeterminateDrawable="@drawable/progress_bar_movie"
+            tools:ignore="UnknownId" >
+        </ProgressBar>
 
 </RelativeLayout>
 

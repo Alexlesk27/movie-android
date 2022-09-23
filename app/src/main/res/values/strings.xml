@@ -9,4 +9,5 @@
     <string name="Filmes_por_vir">movie</string>
     <string name="filmes_por_vir1">Filmes por vir</string>
     <string name="data_do_lan_amento">Data do lançamento</string>
+    <string name="data_de_lan_amento" />
 </resources>

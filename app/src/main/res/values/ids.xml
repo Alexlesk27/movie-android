@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="image_detail" type="id" />
+    <item name="releaseDate" type="id" />
+    <item name="Date" type="id" />
+    <item name="titleDetail" type="id" />
+    <item name="vote" type="id" />
+    <item name="voteAverage" type="id" />
+    <item name="descricao" type="id" />
+    <item name="descripition" type="id" />
+</resources>

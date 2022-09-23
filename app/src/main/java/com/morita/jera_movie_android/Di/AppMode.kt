@@ -5,6 +5,7 @@ import com.morita.jera_movie_android.API.APIRest.MovieApi
 import com.morita.jera_movie_android.API.APIRest.repository.MoviesRepository
 import com.morita.jera_movie_android.Features.Home.PopularMovieViewModel
 import com.morita.jera_movie_android.Features.Home.UpcomingMovieViewModel
+import com.morita.jera_movie_android.Features.Home.search.SearchViewModel
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -43,6 +44,14 @@ val retrofitModule = module {
 val apiModulo = module {
     single(createdAtStart = false) {
         get<Retrofit>().create(MovieApi::class.java)
+    }
+}
+
+val viewModelSerchMovieModule = module {
+    viewModel {
+        SearchViewModel(
+            get ()
+        )
     }
 }
 
