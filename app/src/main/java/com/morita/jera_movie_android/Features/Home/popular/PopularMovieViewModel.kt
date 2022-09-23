@@ -5,11 +5,12 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.morita.jera_movie_android.Models.Movie
 import com.morita.jera_movie_android.API.APIRest.repository.MoviesRepository
+import com.morita.jera_movie_android.Features.Home.popular.useCases.PopularMovieUseCaseInterface
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 
 class PopularMovieViewModel(
-    val movieApi: MoviesRepository
+    val movieApi: PopularMovieUseCaseInterface
 ) : ViewModel() {
 
     private var _apiPopularMovie = MutableStateFlow<ListState<List<Movie>>>(ListState.New)
@@ -22,7 +23,7 @@ class PopularMovieViewModel(
 
     private fun getPopularMovie() {
         viewModelScope.launch {
-            movieApi.moviesPopular().onStart {
+            movieApi.execute().onStart {
                 _apiPopularMovie.value = ListState.Loading
             }.collect {
                 when (it) {

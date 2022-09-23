@@ -3,9 +3,12 @@ package com.morita.jera_movie_android.data.remote.dto
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.morita.jera_movie_android.API.APIRest.MovieApi
 import com.morita.jera_movie_android.API.APIRest.repository.MoviesRepository
-import com.morita.jera_movie_android.Features.Home.PopularMovieViewModel
 import com.morita.jera_movie_android.Features.Home.UpcomingMovieViewModel
-import com.morita.jera_movie_android.Features.Home.search.SearchViewModel
+import com.morita.jera_movie_android.Features.Home.details.useCases.DetailUseCaseUseInterface
+import com.morita.jera_movie_android.Features.Home.details.useCases.DetailUseMovieUseCase
+import com.morita.jera_movie_android.Features.Home.popular.PopularMovieViewModel
+import com.morita.jera_movie_android.Features.Home.popular.useCases.PopularMovieUseCase
+import com.morita.jera_movie_android.Features.Home.popular.useCases.PopularMovieUseCaseInterface
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -41,20 +44,41 @@ val retrofitModule = module {
 }
 
 
+val usecaseModule = module {
+    factory<PopularMovieUseCaseInterface> {
+        PopularMovieUseCase(
+            get()
+        )
+    }
+
+    factory<DetailUseCaseUseInterface> {
+       DetailUseMovieUseCase(
+           get()
+       )
+    }
+}
+
 val apiModulo = module {
     single(createdAtStart = false) {
         get<Retrofit>().create(MovieApi::class.java)
     }
 }
 
-val viewModelSerchMovieModule = module {
-    viewModel {
-        SearchViewModel(
-            get ()
-        )
-    }
-}
-
+//val viewModelSerchMovieModule = module {
+//    viewModel {
+//        SearchViewModel(
+//            get ()
+//        )
+//    }
+//}
+//
+//val viewModelSerchMovieModule = module {
+//    viewModel {
+//        SearchViewModel(
+//            get ()
+//        )
+//    }
+//}
 
 
 val viewModelModule = module {

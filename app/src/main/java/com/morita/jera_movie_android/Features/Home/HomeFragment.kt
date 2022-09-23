@@ -14,6 +14,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.morita.jera_movie_android.Features.Home.popular.PopularMovieViewModel
 import com.morita.jera_movie_android.Models.Movie
 import com.morita.jera_movie_android.databinding.FragmentMoviePopularBinding
 import kotlinx.coroutines.launch
@@ -107,7 +108,7 @@ class HomeFragment : Fragment() {
 
     private fun goToDetailMovie(movie: Movie) {
         val action =
-            HomeFragmentDirections.actionFragmentMoviePopular3ToDetalhesFragment32(movie)
+            HomeFragmentDirections.actionFragmentMoviePopular3ToDetalhesFragment32(movie.id.toInt())
         Log.i("movie", "$movie")
         findNavController().navigate(action)
     }

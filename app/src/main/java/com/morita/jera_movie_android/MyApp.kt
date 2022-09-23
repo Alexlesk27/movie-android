@@ -21,7 +21,8 @@ class MyApp : Application() {
                 apiModulo,
                 viewModelModule,
                 repositoryModule,
-                viewPopularMovieModelModule
+                viewPopularMovieModelModule,
+                usecaseModule
             )
         }
     }

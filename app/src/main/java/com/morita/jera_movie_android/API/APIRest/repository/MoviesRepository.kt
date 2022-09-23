@@ -1,4 +1,5 @@
 package com.morita.jera_movie_android.API.APIRest.repository
+
 import com.morita.jera_movie_android.API.APIRest.MovieApi
 import com.morita.jera_movie_android.Models.Movie
 import com.morita.jera_movie_android.Models.MovieResponse
@@ -12,31 +13,21 @@ class MoviesRepository(
 
 ) {
 
-    suspend fun moviesPopular(): Flow<ResponseState<MovieResponse>> {
+    suspend fun moviesPopular(): MovieResponse {
 
-        return flow {
-            try {
-                val response = api.getPopularMovie()
-                emit(ResponseState.Success(response))
-            } catch (error: Exception) {
-                emit(ResponseState.Error(error))
-            }
-        }.flowOn(Dispatchers.IO)
+        return api.getPopularMovie()
     }
 
-    suspend fun Upcoming(): Flow<ResponseState<MovieResponse>> {
+    suspend fun Upcoming(): MovieResponse {
 
-        return flow {
-            try {
-                val response = api.getUpcoming()
-                emit(ResponseState.Success(response))
-            } catch (error: Exception) {
-                emit(ResponseState.Error(error))
-            }
-        }.flowOn(Dispatchers.IO)
+        return api.getUpcoming()
+
     }
 
+    suspend fun Details(id: Int): Movie {
 
+        return api.getDetails(id)
+    }
 
     sealed class ResponseState<out T> {
         data class Success<out T>(val value: T) : ResponseState<T>()

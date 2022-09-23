@@ -5,11 +5,13 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.morita.jera_movie_android.Models.Movie
 import com.morita.jera_movie_android.API.APIRest.repository.MoviesRepository
+import com.morita.jera_movie_android.Features.Home.details.useCases.DetailUseCaseUseInterface
+import com.morita.jera_movie_android.Features.Home.upcoming.useCases.UpcomingMoviesUseCaseInterface
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 
 class DetailsViewModel(
-    val movieApi: MoviesRepository
+    val movieApi: DetailUseCaseUseInterface
 ) : ViewModel() {
 
     private var _apiDetailsMovie = MutableStateFlow<ListState<Movie>>(ListState.New)
@@ -18,7 +20,7 @@ class DetailsViewModel(
 
      fun getDetailsMovie(id: Int) {
         viewModelScope.launch {
-            movieApi.Details(id).onStart {
+            movieApi.execute(id).onStart {
                 _apiDetailsMovie.value = ListState.Loading
             }.collect {
                 when (it) {

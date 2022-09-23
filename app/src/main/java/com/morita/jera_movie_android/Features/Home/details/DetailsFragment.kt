@@ -11,8 +11,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.morita.jera_movie_android.Features.Home.HomeFragmentDirections
-import com.morita.jera_movie_android.Features.Home.search.SearchFragmentDirections
 import com.morita.jera_movie_android.Features.Home.setVisible
 import com.morita.jera_movie_android.Models.Movie
 import com.morita.jera_movie_android.R
@@ -83,7 +81,7 @@ class DetailsFragment : Fragment() {
         binding.voteAverage.text = movie.voteAverage.toString()
         binding.titleDetail.text = movie.title
         binding.descripition.text = movie.description
-        Picasso.get().load("https://image.tmdb.org/t/p/w500/" + movie.backdrop_path)
+        Picasso.get().load("https://image.tmdb.org/t/p/w500/" + movie.poster_path)
             .into(backdrop_path);
         Picasso.get().load("https://image.tmdb.org/t/p/w500/" + movie.poster_path)
             .into(image_detail);
